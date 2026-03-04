@@ -1,0 +1,33 @@
+import type { PrdFormData } from '../types/prd';
+
+export const DEFAULT_FORM_DATA: PrdFormData = {
+  feature_title: '',
+  domain_area: '',
+  v2mom: '',
+  release: '',
+  target_editions: '',
+  prd_owner: '',
+  designer: '',
+  architect: '',
+  em: '',
+  tpm: '',
+  cx: '',
+  reviewers: [{ name: '', role: '' }],
+  personas: [],
+  persona_other: '',
+  elevator_pitch: '',
+  customer_problem: '',
+  out_of_scope: '',
+  business_customers: '',
+  business_goals: '',
+  business_revenue_impact: '',
+  jtbd: ['', '', ''],
+  metrics: [{ metric: '', defined: '', goal: '', instrumentation: '' }],
+  competitive_context: '',
+  competitive_links: [],
+  references: {},
+  reference_links: [],
+  additional_notes: '',
+  notes_links: [],
+};
+

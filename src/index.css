@@ -1,0 +1,128 @@
+/* PRD Builder — Custom overrides for SLDS */
+
+:root {
+  --header-bg: #032d60;
+  --sidebar-bg: #ffffff;
+  --border-color: #e5e5e5;
+  --page-bg: #f3f3f3;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+body {
+  background: var(--page-bg);
+  font-family: 'Salesforce Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Step transition animation */
+.step-transition {
+  animation: fadeSlideIn 0.25s ease-out;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Card hover in library */
+.slds-card {
+  transition: box-shadow 0.2s ease;
+}
+.slds-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress bar gradient */
+.slds-progress-bar__value {
+  transition: width 0.4s ease;
+}
+
+/* Smooth modal */
+.slds-modal {
+  animation: modalSlideUp 0.2s ease-out;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Toast animation */
+.toast-enter {
+  transform: translateY(100px);
+  opacity: 0;
+}
+.toast-visible {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .step-transition,
+  .slds-modal,
+  .slds-progress-bar__value {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Responsive sidebar hide */
+@media (max-width: 900px) {
+  .slds-nav-vertical {
+    display: none !important;
+  }
+}
+
+/* Fix SLDS background override */
+html {
+  background: var(--page-bg) !important;
+}
+
+/* Suppress SLDS default nav-vertical icons — we use custom numbered circles */
+.slds-nav-vertical__action::before,
+.slds-nav-vertical__item::before {
+  display: none !important;
+  content: none !important;
+}
+.slds-nav-vertical__action {
+  background-image: none !important;
+}
+
+/* Form spacing — consistent vertical rhythm between form rows */
+.slds-card__body .slds-form-element {
+  margin-bottom: 0.75rem;
+}
+.slds-card__body .slds-grid .slds-form-element {
+  margin-bottom: 0;
+}
+.slds-card__body .slds-grid {
+  margin-bottom: 0.75rem;
+}
+.slds-card__body .slds-grid:last-child,
+.slds-card__body .slds-form-element:last-child {
+  margin-bottom: 0;
+}
+
+/* Card body padding */
+.slds-card__body_inner {
+  padding: 1.5rem !important;
+}
