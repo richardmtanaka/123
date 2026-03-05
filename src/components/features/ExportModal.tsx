@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Modal } from '../ui/Modal';
 import { Button } from '../ui/Button';
 import { Toast } from '../ui/Toast';
-import { openInGemini } from '../../utils/gemini-url';
 
 interface ExportModalProps {
   isOpen: boolean;
@@ -11,7 +10,7 @@ interface ExportModalProps {
   featureTitle: string;
 }
 
-export function ExportModal({ isOpen, onClose, content, featureTitle }: ExportModalProps) {
+export function ExportModal({ isOpen, onClose, content }: ExportModalProps) {
   const [toast, setToast] = useState<{ msg: string; variant: 'success' | 'warning' } | null>(null);
 
   const handleCopy = async () => {
